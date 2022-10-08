@@ -1,0 +1,9 @@
+---
+- name: Deploy Teleport Template
+  template: 
+    src: teleport.yaml
+    dest: /etc/teleport.yaml
+    owner: root
+    group: root
+    mode: 0400
+  notify: teleport

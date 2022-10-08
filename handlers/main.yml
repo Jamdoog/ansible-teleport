@@ -1,0 +1,5 @@
+- name: teleport
+  service: 
+    name: teleport
+    state: restarted
+    enabled: yes
