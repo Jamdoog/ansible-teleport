@@ -14,9 +14,15 @@ teleport:
       output: text
   ca_pin: {{ CA_PIN }}
   diag_addr: ""
+auth_service:
+  enabled: "no"
 ssh_service:
-  enabled: "{{ SSH_SERVICE }}"
+  enabled: "yes"
   commands:
-  - name: "Hostname"
+  - name: Hostname
     command: [hostname]
-    period: "24h"
+    period: 24h
+proxy_service:
+  enabled: "no"
+  https_keypairs: []
+  acme: {}
