@@ -6,6 +6,6 @@
   when: ansible_os_family == 'RedHat'
 
 - include_tasks: install_other.yml
-  when: ansible_os_family != ['Debian', 'RedHat']
+  when: ansible_os_family not in ['Debian', 'RedHat']
 
 - include_tasks: configure.yml
