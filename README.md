@@ -9,13 +9,18 @@ What this does
 You can configure which parts of a teleport deployment you want with variables.
 
 - Install teleport via DEB/RPM with GPG check
+- Install teleport from tarball with GPG check (None apt/rpm systems)
 - Enroll automatically as a node for SSH
 
 Requirements
 ------------
 
-A system running Debian or RHEL/CentOS/Rocky etc.
-This has only been tested on Debian 10,11 and RHEL 7,8,9
+A system running utilizing systemd
+This has only been tested on:
+
+Debian 10/11
+RHEL 7/8/9
+openSUSE 15.0/1/2/3/Tumbleweed
 
 
 Role Variables

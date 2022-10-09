@@ -5,4 +5,7 @@
 - include_tasks: install_rpm.yml
   when: ansible_os_family == 'RedHat'
 
+- include_tasks: install_other.yml
+  when: ansible_os_family != ['Debian', 'RedHat']
+
 - include_tasks: configure.yml

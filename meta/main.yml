@@ -2,7 +2,7 @@ galaxy_info:
   author: James Ledger
   description: A ansible role to automatically deploy a node as a teleport instance
   company: 
-  role_name: teleport
+  role_name: jamdoog.teleport
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
@@ -38,6 +38,13 @@ galaxy_info:
         - 7
         - 8
         - 9
+    - name: opensuse
+      versions:
+        - 15.0
+        - 15.1
+        - 15.2
+        - 15.3
+        - tumbleweed
 
   galaxy_tags: 
     - teleport
