@@ -11,6 +11,7 @@ You can configure which parts of a teleport deployment you want with variables.
 - Install teleport via DEB/RPM with GPG check
 - Install teleport from tarball with GPG check (None apt/rpm systems)
 - Enroll automatically as a node for SSH
+- Automatically deploy "commands"/labels for SSH and Application such as Kernel, Teleport & more versioning.
 
 Requirements
 ------------
@@ -34,7 +35,7 @@ Role Variables
 | CA_PIN         | string  | sha256:2awdwadwad678767awd768awdd |
 | TELEPORT_HOST  | string  | teleport.domain.tld:443 |
 | TELEPORT_MAJOR_VERSION | INT | 10 |
-| TELEPORT_MINOR_VERSION | FLOAT | 3.1 |
+| TELEPORT_MINOR_VERSION | FLOAT | 3.2 |
 
 
 
@@ -42,7 +43,19 @@ Role Variables
 
 | Name   | Type    |  Example    |
 |--------|---------|-------------|
-| SSH_SERVICE | string | yes     |
+| SSH_SERVICE | bool | true    |
+| APP_SERVICE | bool | true |
+| CREATE_SSH_COMMANDS | bool | true |
+| CREATE_APP_COMMANDS | bool | true |
+| CREATE_COMMANDS | bool | true |
+| CREATE_OS_COMMANDS | bool | true |
+| CREATE_KERNEL_COMMANDS | bool | true |
+| CREATE_TELEPORT_COMMANDS | bool | true |
+| TELEPORT_APPLICATION_NAME | string | proxmox |
+| TELEPORT_APPLICATION_IGNORE_TLS | string | true |
+| TELEPORT_APPLICATION_URI | string | https://192.168.200.1:8006  |
+
+
 
 Dependencies
 ------------
@@ -59,12 +72,22 @@ PLAYBOOK:
   roles:
     - jamdoog.teleport
   vars:
-    - INVITE_TOKEN: ...
-    - CA_PIN: ...
-    - TELEPORT_HOST: ...
-    - TELEPORT_MINOR_VERSION: ...
-    - TELEPORT_MAJOR_VERSION: ...
-    - SSH_SERVICE: ...
+    - INVITE_TOKEN: 4f622402dawdawdaw
+    - CA_PIN: sha256:2awdwadwad678767awd768awdd
+    - TELEPORT_HOST: domain.tld:443
+    - TELEPORT_MINOR_VERSION: 3.2
+    - TELEPORT_MAJOR_VERSION: 10
+    - SSH_SERVICE: true
+    - APP_SERVICE: true
+    - CREATE_COMMANDS: true 
+    - CREATE_HOSTNAME_COMMAND: true 
+    - CREATE_OS_COMMAND: true
+    - CREATE_KERNEL_COMMAND: true
+    - CREATE_TELEPORT_COMMAND: true
+    - TELEPORT_APPLICATION_NAME: "proxmox"
+    - TELEPORT_APPLICATION_IGNORE_TLS: true
+    - TELEPORT_APPLICATION_URI: "https://192.168.200.1:8006"
+
     
 ```
 

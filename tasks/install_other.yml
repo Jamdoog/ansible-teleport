@@ -6,11 +6,6 @@
       - gzip
     state: present
 
-- name: Check if Teleport binary exists
-  stat:
-    path: /usr/local/bin/teleport
-  register: binary
-
 - name: Check if Teleport tarball exists
   stat:
     path: /tmp/teleport-v{{ TELEPORT_MAJOR_VERSION }}.{{ TELEPORT_MINOR_VERSION }}-linux-amd64-bin.tar.gz
@@ -21,7 +16,7 @@
     url: https://get.gravitational.com/teleport-v{{ TELEPORT_MAJOR_VERSION }}.{{ TELEPORT_MINOR_VERSION }}-linux-amd64-bin.tar.gz
     dest: /tmp/teleport-v{{ TELEPORT_MAJOR_VERSION }}.{{ TELEPORT_MINOR_VERSION }}-linux-amd64-bin.tar.gz
     checksum: sha256:https://get.gravitational.com/teleport-v{{ TELEPORT_MAJOR_VERSION }}.{{ TELEPORT_MINOR_VERSION }}-linux-amd64-bin.tar.gz.sha256
-  when: binary.stat.exists == false and tarball.stat.exists == false
+  when: tarball.stat.exists == false
 
 - name: Uncompress Teleport binaries
   unarchive:
