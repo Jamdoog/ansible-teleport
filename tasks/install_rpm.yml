@@ -12,10 +12,12 @@
   dnf:
     name: teleport = {{ TELEPORT_MAJOR_VERSION }}.{{ TELEPORT_MINOR_VERSION }}
     state: present
+    allow_downgrade: yes
   when: ansible_distribution_version >= '8'
 
 - name: Install Teleport Package (YUM)
   yum:
     name: teleport = {{ TELEPORT_MAJOR_VERSION }}.{{ TELEPORT_MINOR_VERSION }}
     state: present
+    allow_downgrade: yes
   when: ansible_distribution_version < '8'
