@@ -47,10 +47,11 @@ Role Variables
 | APP_SERVICE | bool | true |
 | CREATE_SSH_COMMANDS | bool | true |
 | CREATE_APP_COMMANDS | bool | true |
-| CREATE_COMMANDS | bool | true |
-| CREATE_OS_COMMANDS | bool | true |
-| CREATE_KERNEL_COMMANDS | bool | true |
-| CREATE_TELEPORT_COMMANDS | bool | true |
+| CREATE_COMMAND | bool | true |
+| CREATE_OS_COMMAND | bool | true |
+| CREATE_KERNEL_COMMAND | bool | true |
+| CREATE_TELEPORT_COMMAND | bool | true |
+| CREATE_HOSTNAME_COMMAND | bool | true |
 | TELEPORT_APPLICATION_NAME | string | proxmox |
 | TELEPORT_APPLICATION_IGNORE_TLS | string | true |
 | TELEPORT_APPLICATION_URI | string | https://192.168.200.1:8006  |
