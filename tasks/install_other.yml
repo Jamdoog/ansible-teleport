@@ -1,7 +1,7 @@
 ---
 - name: Install tar and gzip
   package:
-    name: 
+    name:
       - tar
       - gzip
     state: present
@@ -30,7 +30,7 @@
     dest: /usr/local/bin
     mode: u+rwx,g-xr,o-x
     remote_src: yes
-  loop: 
+  loop:
     - /tmp/teleport/tctl
     - /tmp/teleport/tsh
     - /tmp/teleport/teleport
@@ -41,7 +41,7 @@
     path: /run/systemd/system
   register: systemd
 
-- name: Check if systemd is present 
+- name: Check if systemd is present
   fail:
     msg: This playbook requires systemd to be your init system.
   when: systemd.stat.exists == false

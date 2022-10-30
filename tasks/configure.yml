@@ -1,6 +1,6 @@
 ---
 - name: Deploy Teleport Template
-  template: 
+  template:
     src: teleport.yaml
     dest: /etc/teleport.yaml
     owner: root

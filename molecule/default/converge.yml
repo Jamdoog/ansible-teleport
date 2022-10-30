@@ -2,5 +2,5 @@
 - name: Converge
   hosts: all
   become: true
-  roles: 
+  roles:
     - role: jamdoog.teleport

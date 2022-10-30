@@ -12,3 +12,6 @@
   when: ansible_os_family not in ['Debian', 'RedHat']
 
 - include_tasks: configure.yml
+
+- include_tasks: generate_token.yml
+  when: GENERATE_TOKEN
