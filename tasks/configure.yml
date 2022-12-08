@@ -1,4 +1,13 @@
 ---
+- name: Check if the OS is proxmox
+  stat:
+    path: /etc/apt/sources.list.d/pve-install-repo.list
+  ignore_errors: true
+  register: proxmox_check
+  when:
+    - CREATE_OS_COMMAND
+    - ansible_os_family == 'Debian'
+
 - name: Deploy Teleport Template
   template:
     src: teleport.yaml

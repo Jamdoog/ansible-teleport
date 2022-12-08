@@ -20,6 +20,7 @@
   when: 
     - CREATE_OS_COMMAND
     - ansible_os_family == 'Debian'
+    - not proxmox_check
 
 - name: Deploy Operating System Command (RHEL)
   lineinfile:
